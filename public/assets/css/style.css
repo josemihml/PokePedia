@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro&display=swap');
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height: 100%;
+    background-image:url(../img/3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Advent Pro', sans-serif;
+    overflow:hidden;
+}
+/* -----------------APP----------------------------*/
+#canvas-wrap { 
+    position:relative; 
+    width:100%;  
+    height: 100%;
+}
+
+#canvas-wrap canvas { 
+    position:absolute;
+    z-index:300;
+}
+
+.containerp{
+    width:100%;
+    height:100%;
+    position:absolute;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    z-index:900;
+}
+
+.pokemon{
+    width:100%;
+    height:100%;
+    display: flex;
+    
+    justify-content:center;
+    position:absolute;
+
+}
+
+.pokemon1{
+    width:60%;
+    height:10%;
+    background-color:rgba(64, 93, 167, 0.301);
+    border-radius: 3%;
+    transition:1.25s ease;
+    margin-top:3%;
+
+}
+
+
+@keyframes fade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+.logos{
+    width:50%;
+    height:120%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-3%;
+}
+
+.logos a{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.pokemonsword{
+    width:100%;
+    height: 100%;
+    background-image:url(../img/logo-pokemon-sword.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+ 
+}
+
+.nav{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content:space-between;
+    
+}
+
+.nav1{
+    width:25%;
+    height:100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  
+}
+
+
+.nav11{
+    text-decoration: none;
+    font-family:'Advent Pro',sans-serif;
+    padding:10px 10px;
+    color:white;
+    transition:0.5s ease;
+    font-size:1.5em;
+    margin:5px;
+    border-radius:0%;
+    
+}
+
+
+.nav11:hover{
+    transform:scale(1.2);
+    text-decoration: none;
+    color:white;
+    
+}
+
+
+
+.nav2{
+    width:25%;
+    height:80%;
+    color:white;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.nav21{
+    text-decoration: none;
+    font-family:'Advent Pro',sans-serif;
+    padding:10px 10px;
+    transition:0.5s ease;
+    font-size:1.5em;
+    margin:5px;
+    border-radius:0%;
+}
+
+.nav21:hover{
+     transform:scale(1.2);
+     text-decoration: none;
+     color:white;
+}
+
+.nav3{
+    width:25%;
+    text-decoration: none;
+    font-family:'Advent Pro',sans-serif;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+
+
+.nav31{
+
+    text-decoration: none;
+    font-family:'Advent Pro',sans-serif;
+    padding:10px 10px;
+    color:white;
+    transition:0.5s ease;
+    font-size:1.5em;
+    margin:5px;
+    border-radius:0%;
+}
+
+.nav31:hover{
+    transform:scale(1.2);
+    text-decoration: none;
+    color:white;
+}
+
+
+.containerp1{
+    width:60%;
+    height:70%;
+    margin-top:2%; 
+    z-index:900;
+
+}
+/*----------------------INDEX------------------------------*/
+.indexc{
+    width:100%;
+    height:100%;
+    background-color:rgba(6, 12, 27, 0.658);
+    display:flex;
+}
+
+.indexc1{
+    width:50%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.indexc11{
+    width:90%;
+    height:90%;
+    background-image:url(../img/charizard-Gigantamax.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.indexc2{
+    padding:10%;
+    width:50%;
+    height:100%;
+    color:white;
+    font-family:'Advent Pro',sans-serif;
+    
+}
+
+.indexc2 h1{
+    font-size:3em;
+    font-weight: 600;
+    text-shadow: 2px 2px #000000;
+}
+
+.indexc2 p{
+    font-size:1.5em;
+    font-weight: 100;
+    text-shadow: 2px 2px #000000;
+}
+
+
+
+
+
+
+/* -----------------BASE DE DATOS POKEMON-------------------*/
+
+.database{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+
+.database img{
+    max-width: 300px;
+}
+
+.pokemoncard{
+    width:200px;
+    height:300px;
+    background-color:rgba(6, 12, 27, 0.658);
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    margin-top:2%;
+    border-radius:3%;
+   
+
+}
+
+.pokemonimage{
+    width:90%;
+    height:60%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 50%;
+}
+
+.pokemonimage a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.pokemonimage a img{
+    width:80%;
+}
+
+.pokemoninfo{
+    width:90%;
+    height:40%;
+    font-family:'Advent Pro',sans-serif;
+    color:white;
+    display:flex;
+}
+
+.pokemoninfo h1{
+    font-size:1.25em;
+     text-shadow: 2px 2px #000000;
+}
+
+.pokemoninfo1{
+    width:70%;
+}
+
+.pokemoninfo2{
+    width:30%;
+}
+
+.pokemoninfo2 a{
+   border-radius:50%;
+   background-color:rgba(255, 255, 255, 0.747);
+   padding:5px; 
+   margin-top:17px;
+   margin-left:7px;
+}
+
+
+.btnd{
+    border-radius:50%;
+    background-color:rgba(255, 255, 255, 0.747);
+    width:30px;
+    height:30px;
+    border:0;
+    margin:3px;
+}
+
+.pokemoninfo2 form{
+    margin:3px;
+}
+
+.pokemonadd{
+    position:fixed;
+    padding:10px 30px;
+    border:0;
+    bottom:25px;
+    background-color:rgba(158, 171, 233, 0.747);
+    font-family:'Advent Pro',sans-serif;
+    left:45%;
+    right:45%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    
+}
+
+.pokemonadd:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+}
+
+
+/*--------------------CREATE------------------*/
+
+.createformp{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.createformp1{
+    width:80%;
+    height:80%;
+    background-color:rgba(6, 12, 27, 0.658);
+    display:flex;
+}
+
+.formc1{
+    padding:2%;
+    color:white;
+}
+
+.pokemonback{
+     position:fixed;
+    padding:10px 30px;
+    border:0;
+    bottom:25px;
+    background-color:rgba(158, 171, 233, 0.747);
+    font-family:'Advent Pro',sans-serif;
+    left:45%;
+    right:45%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+}
+
+.pokemonback:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+}
+
+.pokemonsubmit{
+    padding:10px 30px;
+    border:0;
+    background-color:rgba(158, 171, 233, 0.747);
+    font-family:'Advent Pro',sans-serif;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    text-transform: uppercase;
+    margin-top:6%;
+
+}
+
+.pokemonsubmit:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+    
+}
+
+/*--------------------SHOW---------------------------*/
+.showp{
+    width:100%;
+    height:100%;
+    
+    display:flex;
+}
+
+.showp1{
+    width:50%;
+    height:100%;
+    background-color:rgba(6, 12, 27, 0.658);
+    border-radius:3%;
+    color:white;
+    padding:3%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.showp1 h1 img{
+    width:40px;
+}
+
+.showp11{
+    width:90%;
+    height: 60%;
+}
+
+.abilitiesp{
+    width:90%;
+    height:40%;
+    background-color:#B8E1EC;
+    border-radius:4%;
+}
+
+.showp2{
+    width:50%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.showp2>img{
+    width:60%;
+}
+
+
+/*--------------------DRAG AND DROP------------------*/
+
+.form-content {
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-zone {
+    width: 75%;
+    margin-bottom: 1.5em;
+    height: 300px;
+    background-color: #838383;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border: 5px dashed #caced6;
+    cursor: pointer;
+}
+
+.drop-zone_active {
+    border: 5px solid #caced6;
+    background-color: #414141;
+    color: #caced6;
+}
+
+.icono-upload {
+    height: 80px;
+    fill: currentColor;
+}
+
+.form {
+    width: 100%;
+    text-align: center;
+}
+
+.form-button {
+    background-color: #28a745;
+    border: none;
+    padding: .8em 1em;
+    border-radius: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*-----------------------FORO---------------------*/
+
+.containerf{
+    width:100%;
+    height:100%;
+    
+}
+
+.postcard{
+    width:100%;
+    height:200px;
+    background-color:rgba(6, 12, 27, 0.658);
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    margin-top:2%;
+    border-radius:3%;
+    color:white;
+}
+
+.postadd{
+    position:fixed;
+    padding:10px 30px;
+    border:0;
+    bottom:25px;
+    background-color:rgba(158, 171, 233, 0.747);
+    font-family:'Advent Pro',sans-serif;
+    left:45%;
+    right:45%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    
+}
+
+.postadd:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+}
+
+
