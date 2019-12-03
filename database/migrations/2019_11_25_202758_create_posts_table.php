@@ -28,8 +28,13 @@ class CreatePostsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             
-            $table->foreign('iduser')->references('id')->on('users');
-            $table->foreign('idpokemon')->references('id')->on('pokemon');
+            $table->foreign('iduser')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+                
+            $table->foreign('idpokemon')->references('id')->on('pokemon')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

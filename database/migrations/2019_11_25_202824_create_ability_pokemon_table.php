@@ -26,8 +26,13 @@ class CreateAbilityPokemonTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             
-            $table->foreign('idability')->references('id')->on('ability');
-            $table->foreign('idpokemon')->references('id')->on('pokemon');
+            $table->foreign('idability')->references('id')->on('ability')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+                
+            $table->foreign('idpokemon')->references('id')->on('pokemon')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             
             $table->unique(['idability','idpokemon']);
         
