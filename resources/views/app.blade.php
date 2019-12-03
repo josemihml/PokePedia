@@ -61,10 +61,11 @@
                          	</div>
                         	@endguest
                 			@auth
-                			<div class="nav2">
+                			<div class="nav1">
+                			    <h3>User: {{auth() ->user() -> name}} </h3>
                 				<form id="frm-logout" action="{{ route('logout') }}" method="POST">
                 			        @csrf
-                				<input type="submit" class="nav21" value="logout">
+                				<input type="submit" class="nav13" value="logout">
                 				</form>
                 			</div>
                 			@endauth
