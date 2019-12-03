@@ -9,9 +9,25 @@ html,body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'Advent Pro', sans-serif;
-    overflow:hidden;
 }
+
+::-webkit-scrollbar{
+  width: 18px;
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+  border-radius: 10px;
+  background-color: #CCCCCC;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background-color: rgb(65, 63, 63);
+  background-image: -webkit-linear-gradient(90deg,transparent,rgba(0, 0, 0, 0.4) 50%,transparent,transparent)
+}
+
 /* -----------------APP----------------------------*/
 #canvas-wrap { 
     position:relative; 
@@ -33,6 +49,24 @@ html,body{
     align-items:center;
     z-index:900;
 }
+
+.createformrl{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-image:url(../img/lrw.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity:1;
+    border-radius:10px;
+    font-family: 'Advent Pro', sans-serif;
+    font-size:1.25;
+    z-index:600;
+}
+
 
 .pokemon{
     width:100%;
@@ -120,7 +154,7 @@ html,body{
 
 
 .nav11:hover{
-    transform:scale(1.2);
+    transform:scale(1.1);
     text-decoration: none;
     color:white;
     
@@ -128,26 +162,31 @@ html,body{
 
 
 
-.nav2{
-    width:25%;
-    height:80%;
+
+.nav1 h3{
+    font-family:'Advent Pro',sans-serif;
+    font-size:1.5em;
     color:white;
-    display: flex;
-    justify-content:center;
-    align-items:center;
+    margin:0;
+    background-color:rgba(0,0,0,0.3);
+    padding:10px;
 }
-.nav21{
+
+.nav13{
     text-decoration: none;
     font-family:'Advent Pro',sans-serif;
     padding:10px 10px;
     transition:0.5s ease;
     font-size:1.5em;
     margin:5px;
-    border-radius:0%;
+    border:0;
+    color:white;
+    background-color:transparent;
 }
 
-.nav21:hover{
-     transform:scale(1.2);
+
+.nav13:hover{
+     transform:scale(1.1);
      text-decoration: none;
      color:white;
 }
@@ -240,7 +279,6 @@ html,body{
 
 
 
-
 /* -----------------BASE DE DATOS POKEMON-------------------*/
 
 .database{
@@ -263,6 +301,7 @@ html,body{
     align-items:center;
     margin-top:2%;
     border-radius:3%;
+    box-shadow: 6px 10px rgba(245, 244, 244, 0.1);
    
 
 }
@@ -274,37 +313,51 @@ html,body{
     justify-content:center;
     align-items:center;
     border-radius: 50%;
+  
 }
 
 .pokemonimage a{
     display:flex;
     justify-content:center;
     align-items:center;
+         
 }
 
 .pokemonimage a img{
     width:80%;
+    
 }
 
 .pokemoninfo{
     width:90%;
-    height:40%;
+    height:35%;
+    padding:8%;
     font-family:'Advent Pro',sans-serif;
     color:white;
     display:flex;
+    background-color:rgba(0, 0, 0, 0.63);
+    border-radius:6%;
 }
 
 .pokemoninfo h1{
-    font-size:1.25em;
-     text-shadow: 2px 2px #000000;
+    font-size:1.1em;
+    text-shadow: 2px 2px #000000;
+    margin-top:-5px;
 }
 
 .pokemoninfo1{
     width:70%;
 }
 
+
+.pokemoninfo1 h1 img{
+    width:20px;
+
+}
+
 .pokemoninfo2{
     width:30%;
+  
 }
 
 .pokemoninfo2 a{
@@ -314,6 +367,8 @@ html,body{
    margin-top:17px;
    margin-left:7px;
 }
+
+
 
 
 .btnd{
@@ -333,8 +388,8 @@ html,body{
     position:fixed;
     padding:10px 30px;
     border:0;
-    bottom:25px;
-    background-color:rgba(158, 171, 233, 0.747);
+    bottom:40px;
+    background-color:rgba(121, 192, 121, 0.705);
     font-family:'Advent Pro',sans-serif;
     left:45%;
     right:45%;
@@ -346,6 +401,29 @@ html,body{
 }
 
 .pokemonadd:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+}
+
+
+.abiliteslist{
+    position:fixed;
+    padding:10px 30px;
+    border:0;
+    bottom:40px;
+    background-color: rgba(255, 255, 255, 0.904);
+    font-family:'Advent Pro',sans-serif;
+    left:70%;
+    right:20%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.5s ease;
+    
+}
+
+.abiliteslist:hover{
     text-decoration: none;
     transform:scale(1.1);
     
@@ -367,7 +445,58 @@ html,body{
     height:80%;
     background-color:rgba(6, 12, 27, 0.658);
     display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 }
+
+.createformp11{
+    width:60%;
+    height:40%;
+    padding:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+     background-color:rgba(255,255, 255, 0.458);
+}
+
+.createformp11 input[type=text]{
+    margin-top:10px;
+    padding:2px 148px;
+}
+
+.createformp11 input[type=number]{
+    margin-top:10px;
+    padding:2px 148px;
+}
+
+.createformp11 input[type=file]{
+    margin-top:10px;
+    padding:2px 80px;
+}
+
+
+
+
+
+.postadd2f{
+    position:fixed;
+    padding:10px 80px;
+    border:0;
+    background-color:rgba(121, 192, 121, 0.705);
+    font-family:'Advent Pro',sans-serif;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    
+}
+
+.postadd2f:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+} 
 
 .formc1{
     padding:2%;
@@ -378,7 +507,7 @@ html,body{
      position:fixed;
     padding:10px 30px;
     border:0;
-    bottom:25px;
+    bottom:40px;
     background-color:rgba(158, 171, 233, 0.747);
     font-family:'Advent Pro',sans-serif;
     left:45%;
@@ -403,7 +532,7 @@ html,body{
     text-align:center;
     border-radius:3%;
     color:black;
-    transition:0.75s ease;
+    transition:0.5s ease;
     text-transform: uppercase;
     margin-top:6%;
 
@@ -420,10 +549,14 @@ html,body{
 .showp{
     width:100%;
     height:100%;
-    
+    font-family: 'Advent Pro',sans-serif;
     display:flex;
+   
 }
 
+.showp h1{
+     font-size:1.75em;
+}
 .showp1{
     width:50%;
     height:100%;
@@ -438,19 +571,59 @@ html,body{
 }
 
 .showp1 h1 img{
-    width:40px;
+    width:35px;
 }
 
 .showp11{
     width:90%;
-    height: 60%;
+    height: 40%;
 }
 
 .abilitiesp{
     width:90%;
     height:40%;
-    background-color:#B8E1EC;
-    border-radius:4%;
+  
+    border-radius:3%;
+    display: flex;
+    flex-direction:column;
+}
+
+.abilitiesp1{
+    width:100%;
+    height:100%;
+    overflow-y:scroll;
+}
+
+.ability{
+    width:70%;
+   background-color:rgba(9, 6, 19, 0.548);
+    border-radius: 10%;
+}
+
+.newability{
+    padding:3px 10px;
+    border:0;
+    background-color:rgba(158, 171, 233, 0.747);
+    font-family:'Advent Pro',sans-serif;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.5s ease;
+    text-transform: uppercase;
+    margin-top:6%;
+
+}
+
+.newability:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+    
+}
+
+.newability img{
+    width:40px;
+    margin:4px;
 }
 
 .showp2{
@@ -466,81 +639,236 @@ html,body{
 }
 
 
-/*--------------------DRAG AND DROP------------------*/
 
-.form-content {
-    margin: 1em auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+/*---------------------ABILITIES-----------------*/
+
+.databasea{
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
-.drop-zone {
-    width: 75%;
-    margin-bottom: 1.5em;
-    height: 300px;
-    background-color: #838383;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    border: 5px dashed #caced6;
-    cursor: pointer;
-}
-
-.drop-zone_active {
-    border: 5px solid #caced6;
-    background-color: #414141;
-    color: #caced6;
-}
-
-.icono-upload {
-    height: 80px;
-    fill: currentColor;
-}
-
-.form {
-    width: 100%;
-    text-align: center;
-}
-
-.form-button {
-    background-color: #28a745;
-    border: none;
-    padding: .8em 1em;
-    border-radius: 15px;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.hide {
-    display: none;
+.abilitycard{
+    width:100%;
+    height:10%;
+    background-color:rgba(0, 0, 0, 0.541);
+    margin-top:2%;
+   
+    
 }
 
 
+.abilitycard1{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+
+.abilitycard h1{
+    width:90%;
+    font-family: 'Advent Pro', sans-serif;
+    color:white;
+    font-size:1.6em;
+    margin:1%;
+   
+}
+
+.abilitycard img{
+    width:40px;
+    margin:1%;
+}
+
+.abilitycard form{
+    width:10%;
+}
+
+.abilitycard form button{
+    border:0;
+    background-color:transparent;
+    
+}
+
+.abilityadd{
+    position:fixed;
+    padding:10px 30px;
+    border:0;
+    bottom:40px;
+    background-color:rgba(121, 192, 121, 0.705);
+    font-family:'Advent Pro',sans-serif;
+    left:45%;
+    right:45%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    
+}
+
+.abilityadd:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+}
+
+.pokemonbacka{
+    position:fixed;
+    padding:10px 30px;
+    border:0;
+    bottom:40px;
+    background-color: rgba(255, 255, 255, 0.904);
+    font-family:'Advent Pro',sans-serif;
+    left:70%;
+    right:20%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.5s ease;
+    
+}
+
+.pokemonbacka:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+}
+
+
+.abilityadd2{
+    position:fixed;
+    padding:10px 80px;
+    border:0;
+    bottom:40px;
+    background-color:rgba(121, 192, 121, 0.705);
+    font-family:'Advent Pro',sans-serif;
+    left:45%;
+    right:45%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    
+}
+
+.abilityadd2:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+} 
 /*-----------------------FORO---------------------*/
 
 .containerf{
     width:100%;
     height:100%;
-    
+    font-family:'Advent Pro',sans-serif;
 }
+
+
 
 .postcard{
     width:100%;
-    height:200px;
+    height:300px;
     background-color:rgba(6, 12, 27, 0.658);
+    margin-top:2%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color:white;
     display:flex;
+    align-items:center;
+    justify-content:center;
+   
+}
+
+.postcarda{
+    width:100%;
+    height:100%;
+    text-decoration: none;
+    color:white;
+    display:flex;
+    align-items:center;
     justify-content:center;
     flex-direction:column;
-    align-items:center;
-    margin-top:2%;
-    border-radius:3%;
+}
+
+.postcarda:hover{
+    cursor:pointer;
+    text-decoration:none;
     color:white;
+}
+
+.postcard1{
+    width:90%;
+    height: 90%;
+    display: flex;
+    flex-direction:column;
+
+}
+
+.postcard1 p,h1{
+    margin:0;
+}
+
+.postcard11{
+    width:90%;
+    height:15%;
+    display: flex;
+    align-items:center;
+    background-color:rgba(8, 100, 238, 0.2);
+    padding-left:6px;
+}
+
+.postcardtag{
+    padding:1px 10px;
+    background:green;
+    border-radius:5px;
+    height:50%;
+}
+
+.postcardtag p{
+    margin:0;
+}
+
+.postcard111{
+    height:80%;
+    margin-left:20px;
+    display:flex;
+    align-items:center;
+ 
+ 
+}
+
+.postcard111 h1{
+     font-size:2em;
+ 
+}
+
+.postcard112{
+    height:80%;
+    margin-left:20px;
+    display:flex;
+    align-items:center;
+}
+
+.postcard112 p{
+    margin:0;
+}
+ 
+.postcard12{
+    width:90%;
+    height:70%;
+    background-color:rgba(200, 204, 167, 0.3);
+    border-radius:10px;
+    margin-top:20px;
+    padding:10px;
+    overflow-y:scroll;
+    color:white;
+     
+}
+
+.postcard12 p{
+    width:100%;
+    height:100%;
 }
 
 .postadd{
@@ -549,7 +877,7 @@ html,body{
     border:0;
     bottom:25px;
     background-color:rgba(158, 171, 233, 0.747);
-    font-family:'Advent Pro',sans-serif;
+   
     left:45%;
     right:45%;
     text-align:center;
@@ -564,5 +892,106 @@ html,body{
     transform:scale(1.1);
     
 }
+
+
+.comments{
+    width:100%;
+    height:50%;
+    background-color:rgba(6, 12, 27, 0.658);
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.comments1{
+    width:90%;
+    height:90%;
+    overflow-y:scroll;    
+}
+
+.comment{
+    width:100%;
+    height:170px;
+    background:rgba(245, 243, 243, 0.679);
+    border-radius: 7px;
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+ 
+}
+
+.commentsP{
+    display: flex;
+    width:10%;
+    background:rgba(3, 5, 146, 0.575);
+    border-radius:5px;
+    margin:8px;
+    z-index:600;
+}
+
+.commentsP p{
+    margin:0;
+    color:White;
+    
+
+}
+
+.commentsc{
+    width:90%;
+    height:70%;
+    border-radius:5px;
+    background-color:white;
+    margin-top:-10px;
+    margin-left:8px;
+    z-index:599;
+    padding:7px;
+}
+
+.commentsc p{
+    margin:0;
+   
+    
+}
+
+.formpostcardc{
+    width:100%;
+    height:100%;
+}
+
+
+
+.postcardtagc{
+    padding:1px 10px;
+    background:green;
+    border-radius:5px;
+
+}
+
+
+.postadd2{
+    position:fixed;
+    padding:10px 80px;
+    border:0;
+    bottom:40px;
+    background-color:rgba(121, 192, 121, 0.705);
+    font-family:'Advent Pro',sans-serif;
+    left:45%;
+    right:45%;
+    text-align:center;
+    border-radius:3%;
+    color:black;
+    transition:0.75s ease;
+    
+}
+
+.postadd2:hover{
+    text-decoration: none;
+    transform:scale(1.1);
+    
+} 
+
 
 
