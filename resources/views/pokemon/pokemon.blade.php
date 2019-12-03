@@ -10,12 +10,12 @@
             </div>
             <div class="pokemoninfo">
                 <div class="pokemoninfo1">
-                    <h1 id="id">{{$pokemon->id}} - {{$pokemon->name}}</h1>
+                    <h1 id="id">{{$pokemon->id}}. {{$pokemon->name}}</h1>
                     <h1 id="id"><i class="fas fa-weight-hanging"></i> {{$pokemon->weight}}</h1>
                     <h1><i class="fas fa-angle-double-up"></i> {{$pokemon->height}}</h1>
                 </div>
                 <div class="pokemoninfo2">
-                    <a href="{{url('pokemon/'.$pokemon->id.'/edit') }}" class="btnp"><i class="fas fa-edit"></i></a>
+
                     <form action="{{url('pokemon/'.$pokemon->id)}}" method="post" class="destroy">
                         @csrf
                         @method('DELETE')
@@ -35,8 +35,9 @@
     <br>
     <br>
      {{$pokemons->links()}}
-      <a href="{{url('pokemon/create')}}" class="pokemonadd">ADD POKEMON</a>
+    @auth
+    <a href="{{url('pokemon/create')}}" class="pokemonadd">ADD POKEMON</a>
+    @endauth
+    <a href="{{url('ability')}}" class="abiliteslist">ABILITIES LIST</a>
 
-    
-</div>
 @stop
