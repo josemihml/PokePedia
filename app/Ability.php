@@ -17,5 +17,9 @@ class Ability extends Model
     
     public $timestamps = true;
     
+    public function abilityPokemon() {
+        return $this->hasMany('App\AbilityPokemon');
+    }
+    
 
 }

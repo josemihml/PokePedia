@@ -9,7 +9,7 @@ class AbilityPokemon extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'abilitypokemon' ;
+    protected $table = 'ability_pokemon' ;
     
     protected $hidden = ['created_at','updated_at'];
     
