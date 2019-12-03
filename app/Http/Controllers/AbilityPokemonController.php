@@ -57,7 +57,7 @@ class AbilityPokemonController extends Controller
      */
     public function edit(AbilityPokemon $abilityPokemon)
     {
-        //
+        return view('ability/edit')->with(['ability'=>$ability]);
     }
 
     /**

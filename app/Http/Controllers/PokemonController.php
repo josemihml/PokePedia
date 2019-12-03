@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Pokemon;
+use App\Ability;
+use App\AbilityPokemon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input as input;
 
 use App\Http\Requests\PokemonRequest;
-
-use Illuminate\Support\Facades\DB;
 
 class PokemonController extends Controller
 {
@@ -19,7 +20,12 @@ class PokemonController extends Controller
     public function index()
     {
         $pokemon = Pokemon::paginate(10);
-        return view('pokemon/pokemon')->with(['pokemons' => $pokemon]);
+        
+        $ability= Ability::All();
+        
+        $abilityPokemon= AbilityPokemon::All();
+        
+        return view('pokemon/pokemon')->with(['pokemons' => $pokemon, 'ability' => $ability,'abilitiesP' => $abilityPokemon]);
          
     }
 
@@ -43,16 +49,27 @@ class PokemonController extends Controller
     {
         $input=$request->validated();
         $pokemon=new Pokemon($input);
-        $pokemon->ip=$request->ip();
+        $pokemon -> image= $request -> file('file')->getClientOriginalName();
+        if($request->hasFile('file') && $request->file('file')->isValid()) {
+            $file = $request->file('file');
+            $target = '../public/assets/img/';
+            $name = $file->getClientOriginalName();
+            $file->move($target, $name);
+ 
+        }
+        
+        $pokemon -> height = $request -> get ("height");
+        $pokemon -> name = $request -> get ("name");
+        $pokemon -> weight = $request -> get ("weight");
         try {
-            $result=$cliente->save();
+            $result=$pokemon->save();
         } catch(\Exception $e) {
             var_dump($e);
             exit;
-            //return redirect(route('cliente.create'));
+        
         }
     
-        return redirect(route('cliente.index'));
+        return redirect(route('pokemon.index'));
     }
 
     /**
@@ -63,7 +80,11 @@ class PokemonController extends Controller
      */
     public function show(Pokemon $pokemon)
     {
-        return view('pokemon/show')->with(['pokemon'=>$pokemon]);
+        $ability= Ability::All();
+        
+        $abilityPokemon= AbilityPokemon::All();
+        
+        return view('pokemon/show')->with(['pokemon'=>$pokemon , 'ability' => $ability,'abilitiesP' => $abilityPokemon]);
     }
 
     /**
@@ -108,6 +129,7 @@ class PokemonController extends Controller
          try{
              $pokemon->delete();
              $result=true;
+
         }catch(\Exception $e){
             $result=false;
         }

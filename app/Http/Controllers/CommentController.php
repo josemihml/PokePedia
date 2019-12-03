@@ -14,7 +14,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+         return view('comment/create');
     }
 
     /**
@@ -23,8 +23,9 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        
+        return view('comment/create');
     }
 
     /**
@@ -33,9 +34,21 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
-        //
+        $input = $request->validated();
+        $comment = new Comment($input);
+        $post ->iduser = auth()->user()->id;
+        try {
+            $result=$post->save();
+        } catch(\Exception $e) {
+           /*return redirect(route('post.create'));*/
+           var_dump($e);
+           exit;
+          
+        }
+    
+        return redirect(route('post.index'));
     }
 
     /**
@@ -67,7 +80,7 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(CommentRequest $request, Comment $comment)
     {
         //
     }
